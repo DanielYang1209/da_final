@@ -1,5 +1,6 @@
 import webTree.*;
-import google.*;
+import g2.*;
+
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -12,7 +13,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import g2.SubWebquery;
+import g2.googleSearch;
+
 public class App {
+    public static ArrayList<WebPage> webPageList=new ArrayList<WebPage>();
     public static void main(String[] args) throws Exception {
         ArrayList<webTreeConstruct> treeList=new ArrayList<webTreeConstruct>();
         //System.out.println("Hello, World!");
@@ -62,7 +67,7 @@ public class App {
         treeList.add(tree2);
         treeList.add(tree3);
         treeList.add(tree4);
-        HashMap map=googleSearch.google("coffee");
+        /* HashMap map=googleSearch.google("coffee");
         for(Object value: map.keySet()){
             String key=String.valueOf(value);
             String url=(String) map.get(key);
@@ -79,10 +84,13 @@ public class App {
 
             }
             treeList.add(tree);
-        }
+        } */
         //tree1.rooPage.score;
-        ArrayList<WebPage> webPageList=new ArrayList<WebPage>();
+        System.out.println(treeList.size());
+        int i=0;
         for(webTreeConstruct tree:treeList){
+            System.out.print(i);
+            i++;
             tree.contructTree();
             webPageList.add(tree.rooPage);
         }
@@ -95,8 +103,9 @@ public class App {
             }
 
         });
+        Collections.reverse(webPageList);
         for(WebPage webpage:webPageList){
-            System.out.println(webpage.name+"          "+webpage.score);
+            System.out.printf("Title:%s score: %10f\n",webpage.name,webpage.score);
         }
     }
 }

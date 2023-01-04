@@ -1,4 +1,4 @@
-package google;
+package g2;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public class googleSearch
 			 * 8,9:Process
 			 */
 			HashMap map=new GoogleQuery(searchKeyword).query();
-			System.out.println(map);
+			//System.out.println(map);
 //			GoogleQuery g = new GoogleQuery("NCCU");
 //			g.query();
 			//System.out.println("F");
@@ -29,7 +29,7 @@ public class googleSearch
 		} 
 		catch (IOException e) 
 		{
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		}
 	}

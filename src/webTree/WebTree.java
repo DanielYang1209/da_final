@@ -28,7 +28,8 @@ public class WebTree {
 	}
 	
 	public void eularPrintTree(){
-		eularPrintTree(root);
+		System.out.println(" computing...");
+		//eularPrintTree(root);
 	}
 	
 	private void eularPrintTree(WebNode startNode){
